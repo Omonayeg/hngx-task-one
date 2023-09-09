@@ -44,10 +44,11 @@
           undefined,
           options
         );
-        const formattedTime = currentDate.toLocaleTimeString();
+        const formattedTime = currentDate.getTime();
+
 
         dayElement.textContent = `Current Day: ${formattedDate}`;
-        timeElement.textContent = `Current Time: ${formattedTime}`;
+        timeElement.textContent = `Current Time (milliseconds): ${formattedTime}`;
       }
 
       // Update the date and time initially and then refresh it every second.
