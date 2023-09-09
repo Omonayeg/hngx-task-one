@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>HNGx task one</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <h1 data-testid="slackUserName">Will</h1>
+
+    <img
+      src="https://lh3.googleusercontent.com/a/ACg8ocKATlO4Jj2xLwCRoO0gpnYfU7uudoPDuzidoCD_jZ-ACWY=s288-c-no"
+      alt="Will"
+      data-testid="slackDisplayImage"
+    />
+
+    <p data-testid="currentDayOfTheWeek"></p>
+    <p data-testid="currentUTCTime"></p>
+
+    <h3 data-testid="my-Track">Frontend</h3>
+
+    <a
+      href="https://github.com/Omonayeg/HNGx/tree/HNGx-task-one/HNG%20task%20one"
+      data-testid="githubURL"
+      >See Sourcecode Here</a
+    >
+
+    <script>
+      function updateDateTime() {
+        const currentDate = new Date();
+        const dayElement = document.querySelector(
+          '[data-testid="currentDayOfTheWeek"]'
+        );
+
+        const timeElement = document.querySelector(
+          '[data-testid="currentUTCTime"]'
+        );
+
+        // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const options = { weekday: "long" };
+        const formattedDate = currentDate.toLocaleDateString(
+          undefined,
+          options
+        );
+        const formattedTime = currentDate.toLocaleTimeString();
+
+        dayElement.textContent = `Current Day: ${formattedDate}`;
+        timeElement.textContent = `Current Time: ${formattedTime}`;
+      }
+
+      // Update the date and time initially and then refresh it every second.
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
+    </script>
+  </body>
+</html>
